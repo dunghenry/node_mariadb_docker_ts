@@ -1,0 +1,30 @@
+version: "3.8"
+services:
+  backend:
+    container_name: node_mariadb
+    restart: unless-stopped
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    ports:
+      - 4000:4000
+    volumes:
+      - "./src:/app/src"
+      - /app/node_modules
+    networks:
+      - trandung
+  mariadb:
+    image: mariadb
+    restart: always
+    environment:
+      MARIADB_ROOT_PASSWORD: admin
+    expose:
+      - "3306"
+    ports:
+      - "3306:3306"
+    networks:
+      - trandung
+volumes:
+  mariadb:
+networks:
+  trandung:
