@@ -5,4 +5,4 @@ export const createUser =
 export const getUser = 'SELECT * FROM users WHERE id = ?';
 export const deleteUser = 'DELETE FROM users WHERE id = ?';
 export const updateUser =
-    'UPDATE users SET email = ?, password = ?, age = ? WHERE id = ?';
+    'UPDATE users SET username = ?, email = ?, age = ? WHERE id = ?';
